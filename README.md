@@ -1,16 +1,25 @@
 # integrasjonsutviklerEx1
 
+*******************
 Synlige Mangler:
+*******************
+
 *Dette er en uferdig løsning, men jeg har valgt å brukel Camel rammeverket til å løse oppgaven. 
 *Oppdatere status mangler implementering.
 *Ingen tester er etablert. Her er måle å opprette en rest integrasjonstest, Camel rutetester og enhetstester med JUnit.
 *request ident burde defineres i alle grensesnitt mht logging
 *prosessgang må utbedres for å få en robust flyt 
 
-Forenkling:
+*******************
+Forenklinger:
+*******************
+
 Jeg har i løsningen for å forenkle valgt å legge fagsystemet i integrasjonsløsningen og et etablert soap grensesnitt inne i samme løsning. 
 
+*******************
 Hva som er gjort:
+*******************
+
 Datastruktur for å definere integrasjonskontrakt er laget. 
 Feilhandtering er etablert (Fault).
 Det mangler et rest grensesnitt, men to Soap kontrakter er blitt etablert for 
