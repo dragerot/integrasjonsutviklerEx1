@@ -32,7 +32,7 @@ Det mangler et rest grensesnitt, men to Soap kontrakter er blitt etablert for
 Kontrakter er definert her: https://github.com/dragerot/integrasjonsutviklerEx1/tree/master/src/main/java/integrasjon/service
 
 
-Camel ruten classen 
+Camel ruteclassen 
 
 "https://github.com/dragerot/integrasjonsutviklerEx1/blob/master/src/main/java/integrasjon/route/KundeAvtaleIntegrasjonRoute.java"
 
