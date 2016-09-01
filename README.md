@@ -8,8 +8,7 @@ Synlige Mangler:
 *Oppdatere status mangler implementering.
 *Ingen tester er etablert. Her er måle å opprette en rest integrasjonstest, Camel rutetester og enhetstester med JUnit.
 *request ident burde defineres i alle grensesnitt mht logging
-*prosessgang må utbedres for å få en robust flyt 
-
+*prosessgang må utbedres for å få en robust flyt.
 *******************
 Forenklinger:
 *******************
