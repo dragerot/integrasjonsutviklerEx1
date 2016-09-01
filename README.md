@@ -7,10 +7,10 @@ Jeg er interessert i Spring Boot, og kunne konfigurert opp med mindre konfiguras
 
 Synlige Mangler:
 
-*Oppdatere status mangler implementering.
-*Ingen tester er etablert. Her er måle å opprette en rest integrasjonstest, Camel rutetester og enhetstester med JUnit.
-*request ident burde defineres i alle grensesnitt mht logging
-*prosessgang må utbedres for å få en robust flyt.
+* Oppdatere status mangler implementering.
+* Ingen tester er etablert. Her er måle å opprette en rest integrasjonstest, Camel rutetester og enhetstester med JUnit.
+* request ident burde defineres i alle grensesnitt mht logging
+* prosessgang må utbedres for å få en robust flyt.
 
 
 Forenklinger:
