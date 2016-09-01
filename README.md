@@ -28,13 +28,16 @@ Det mangler et rest grensesnitt, men to Soap kontrakter er blitt etablert for
 
 Kontrakter er definert her: https://github.com/dragerot/integrasjonsutviklerEx1/tree/master/src/main/java/integrasjon/service
 
+
 Camel ruten classen 
 
 "https://github.com/dragerot/integrasjonsutviklerEx1/blob/master/src/main/java/integrasjon/route/KundeAvtaleIntegrasjonRoute.java"
 
-og camel blokk "from("direct:csl:opprettKundeAvtale").routeId("csl:oppretteKundeAvtale")."
+og camel blokk 
 
-skal orkistrere operasjoner med å 
+"from("direct:csl:opprettKundeAvtale").routeId("csl:oppretteKundeAvtale")."
+
+skal prosessere  
 
 -opprette en kunde, 
 -opprette en avtale
