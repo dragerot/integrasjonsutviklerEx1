@@ -21,7 +21,7 @@ Jeg har i løsningen for å forenkle valgt å legge fagsystemet i integrasjonsl�
 
 Hva som er gjort:
 
-Datastruktur for å definere integrasjonskontrakt er laget. 
+Datastrukturer (domene) for å definere integrasjonskontrakter er laget. 
 Feilhandtering er etablert (Fault).
 Det mangler et rest grensesnitt, men to Soap kontrakter er blitt etablert for 
 
