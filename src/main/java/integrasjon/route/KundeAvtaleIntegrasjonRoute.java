@@ -38,7 +38,9 @@ public class KundeAvtaleIntegrasjonRoute extends RouteBuilder {
                 to("direct:baal:registerKunde").
                 bean(StoppSjekkAvtaleIkkeKvalifisert.class).
                 to("direct:baal:registerAvtale").
-                to("direct:baal:Sendepost").
+                //bean("stoppSjekkStatusIkkeKvalifisert").
+                //to("direct:baal:oppdatereStatus").
+                to("direct:bana:Sendepost").
                 end();
 
        from("direct:baal:registerKunde").routeId("baal:oppretteKundeAvtale").
@@ -51,10 +53,17 @@ public class KundeAvtaleIntegrasjonRoute extends RouteBuilder {
         from("direct:baal:registerAvtale").routeId("baal:registerAvtale").
                 //bean(OpprettKundeAvtaleTransform.class).
 //               setHeader("operationNamespace", constant("http://biz/ifint/no/webshop/fagsystem/service")).
-//               setHeader("operationName", constant("oppretteKunde")).
+//               setHeader("operationName", constant("oppretteOppdrag")).
 //               to("cxf:bean:fagsystemService").
         end();
 
+
+      from("direct:baal:oppdatereStatus").routeId("baal:oppdatereStatus").
+                //bean("OppdatereStatusTransform.class).
+//               setHeader("operationNamespace", constant("http://biz/ifint/no/webshop/fagsystem/service")).
+//               setHeader("operationName", constant("oppdatereStatus")).
+//               to("cxf:bean:fagsystemService").
+        end();
 
 //        from("direct:baal:Sendepost").routeId("sendbrev").
 //                to("TODO").
