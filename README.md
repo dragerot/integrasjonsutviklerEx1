@@ -22,9 +22,9 @@ Datastruktur for å definere integrasjonskontrakt er laget.
 Feilhandtering er etablert (Fault).
 Det mangler et rest grensesnitt, men to Soap kontrakter er blitt etablert for 
 
--opprette en kunde (fagsystem), 
--opprette en avtale (fagsystem)
--sende avtale til kunde (Integrasjonsoppgaven)
+* opprette en kunde (fagsystem)
+* opprette en avtale (fagsystem)
+* sende avtale til kunde (Integrasjonsoppgaven)
 
 Kontrakter er definert her: https://github.com/dragerot/integrasjonsutviklerEx1/tree/master/src/main/java/integrasjon/service
 
@@ -39,9 +39,9 @@ og camel blokk
 
 skal prosessere  
 
--opprette en kunde, 
--opprette en avtale
--sende avtale til kunde
+* opprette en kunde, 
+* opprette en avtale
+* sende avtale til kunde
 -oppdatere status
--returnere resultat
+* returnere resultat
 
