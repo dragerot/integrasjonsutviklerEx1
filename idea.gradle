@@ -1,0 +1,12 @@
+subprojects {
+    apply plugin: 'idea'
+
+    idea.module {
+        sourceDirs += file('build/generated-sources')
+        sourceDirs += file('src/main/java')
+        excludeDirs = null // Build dir is exluded by default.
+        inheritOutputDirs = false
+        outputDir = file('build/classes/main')
+        testOutputDir = file('build/classes/test')
+    }
+}

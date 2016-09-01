@@ -1,0 +1,16 @@
+buildscript {
+    repositories {
+        jcenter()
+       mavenCentral()
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:1.2.1'
+    }
+}
+if (!project.plugins.findPlugin(org.akhikhl.gretty.GrettyPlugin)) project.apply(plugin: org.akhikhl.gretty.GrettyPlugin)
+
+gretty {
+    jvmArgs = ['-XX:MaxPermSize=512M', '-Duser.timezone="Europe/Helsinki"'] //Increase memory and set timeZone
+    host = '0.0.0.0' //Enable network access from outside your local machine
+    servletContainer = 'jetty9'
+}

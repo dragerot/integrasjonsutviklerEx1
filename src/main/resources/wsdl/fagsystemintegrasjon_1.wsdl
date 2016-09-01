@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="FagSystemServiceService" targetNamespace="http://biz/ifint/no/webshop/fagsystem/service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://biz/ifint/no/webshop/fagsystem/service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://biz/ifint/no/webshop/common/fault">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://webshop.no.ifint.biz/kunde" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://biz/ifint/no/webshop/fagsystem/service">
+      <xs:import namespace="http://biz/ifint/no/webshop/fagsystem/service"/>
+      <xs:complexType name="OppretteKundeInn">
+        <xs:sequence>
+          <xs:element name="Kunde" type="ns1:Kunde"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://webshop.no.ifint.biz/avtale" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://biz/ifint/no/webshop/fagsystem/service">
+      <xs:import namespace="http://biz/ifint/no/webshop/fagsystem/service"/>
+      <xs:complexType name="OppretteAvtaleInn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="KundeNummer" type="xs:string"/>
+          <xs:element name="Produkt" type="ns1:Produkt"/>
+          <xs:element name="Betingelser" type="ns1:Betingelser"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://biz/ifint/no/webshop/fagsystem/service" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://webshop.no.ifint.biz/avtale" xmlns:ns1="http://webshop.no.ifint.biz/kunde">
+      <xs:import namespace="http://webshop.no.ifint.biz/kunde"/>
+      <xs:import namespace="http://webshop.no.ifint.biz/avtale"/>
+      <xs:element name="oppretteAvtale" type="tns:oppretteAvtale"/>
+      <xs:element name="oppretteAvtaleResponse" type="tns:oppretteAvtaleResponse"/>
+      <xs:element name="oppretteKunde" type="tns:oppretteKunde"/>
+      <xs:element name="oppretteKundeResponse" type="tns:oppretteKundeResponse"/>
+      <xs:complexType name="oppretteKunde">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OppretteKundeInn" type="ns1:OppretteKundeInn"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Kunde">
+        <xs:sequence>
+          <xs:element name="Ssn" type="xs:string"/>
+          <xs:element name="BostedAdresse" type="xs:string"/>
+          <xs:element name="BostedPostNummer" type="xs:string"/>
+          <xs:element name="PostSted" type="xs:string"/>
+          <xs:element name="Epost" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="oppretteKundeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OppretteKundeUt" type="tns:OppretteKundeUt"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OppretteKundeUt">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Status" type="tns:statusType"/>
+          <xs:element minOccurs="0" name="KundeNummer" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="oppretteAvtale">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OppretteAvtaleInn" type="ns2:OppretteAvtaleInn"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Produkt">
+        <xs:sequence>
+          <xs:element name="ProduktId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Betingelser">
+        <xs:sequence>
+          <xs:element name="EnBetingelse" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="oppretteAvtaleResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OppretteAvtaleUt" type="tns:OppretteAvtaleUt"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OppretteAvtaleUt">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Status" type="tns:statusType"/>
+          <xs:element minOccurs="0" name="avtaleNummer" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="statusType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Opprettet"/>
+          <xs:enumeration value="IkkeOpprettet"/>
+          <xs:enumeration value="BusinessFault"/>
+          <xs:enumeration value="SystemFault"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://biz/ifint/no/webshop/common/fault" xmlns:tns="http://biz/ifint/no/webshop/common/fault">
+      <xsd:element name="BusinessFault" type="tns:BusinessFault"/>
+      <xsd:complexType name="BusinessFault">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="SystemFault" type="tns:SystemFault"/>
+      <xsd:complexType name="SystemFault">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="oppretteKunde">
+    <wsdl:part element="tns:oppretteKunde" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="oppretteKundeResponse">
+    <wsdl:part element="tns:oppretteKundeResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="BusinessFault">
+    <wsdl:part element="ns1:BusinessFault" name="BusinessFault"/>
+  </wsdl:message>
+  <wsdl:message name="SystemFault">
+    <wsdl:part element="ns1:SystemFault" name="SystemFault"/>
+  </wsdl:message>
+  <wsdl:message name="oppretteAvtaleResponse">
+    <wsdl:part element="tns:oppretteAvtaleResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="oppretteAvtale">
+    <wsdl:part element="tns:oppretteAvtale" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="FagSystemService">
+    <wsdl:operation name="oppretteKunde">
+      <wsdl:input message="tns:oppretteKunde" name="oppretteKunde"/>
+      <wsdl:output message="tns:oppretteKundeResponse" name="oppretteKundeResponse"/>
+      <wsdl:fault message="tns:SystemFault" name="SystemFault"/>
+      <wsdl:fault message="tns:BusinessFault" name="BusinessFault"/>
+    </wsdl:operation>
+    <wsdl:operation name="oppretteAvtale">
+      <wsdl:input message="tns:oppretteAvtale" name="oppretteAvtale"/>
+      <wsdl:output message="tns:oppretteAvtaleResponse" name="oppretteAvtaleResponse"/>
+      <wsdl:fault message="tns:SystemFault" name="SystemFault"/>
+      <wsdl:fault message="tns:BusinessFault" name="BusinessFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FagSystemServiceServiceSoapBinding" type="tns:FagSystemService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="oppretteKunde">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="oppretteKunde">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="oppretteKundeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SystemFault">
+        <soap:fault name="SystemFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="BusinessFault">
+        <soap:fault name="BusinessFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="oppretteAvtale">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="oppretteAvtale">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="oppretteAvtaleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SystemFault">
+        <soap:fault name="SystemFault" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="BusinessFault">
+        <soap:fault name="BusinessFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FagSystemServiceService">
+    <wsdl:port binding="tns:FagSystemServiceServiceSoapBinding" name="Service">
+      <soap:address location="http://localhost:8080/webshop-finnno/webservices/fagsystemintegrasjon"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

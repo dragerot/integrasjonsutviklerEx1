@@ -1,0 +1,66 @@
+apply from: 'gretty.gradle'
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'no.nils.wsdl2java'
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'no.nils:wsdl2java:0.8'
+    }
+}
+
+dependencies {
+    providedCompile 'org.apache.cxf:cxf-rt-rs-extension-providers:3.1.4'
+    providedCompile 'org.apache.camel:camel-xstream:2.17.1'
+    providedCompile 'org.apache.cxf.xjc-utils:cxf-xjc-runtime:3.0.5'
+
+    compile("org.apache.camel:camel-core:2.17.1")
+    compile("org.apache.camel:camel-cxf:2.17.1")
+    compile("org.springframework:spring-web:4.2.6.RELEASE")
+    testCompile 'org.mockito:mockito-core:1.9.5'
+}
+
+//group = 'biz.ifint.no.webshop'
+//version = '1.1.0'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
+
+
+wsdl2java {
+    generatedWsdlDir = file('build/generated-sources')  // target directory for generated source code
+    wsdlDir = file('src/main/resources') // define to support incremental build
+    cxfVersion = '3.0.5' // Downgrade due to https://github.com/nilsmagnus/wsdl2java/issues/37
+
+        wsdlsToGenerate = [
+            ['-fe', 'jaxws21', '-xjc', "$wsdlDir/wsdl/fagsystemintegrasjon_1.wsdl"]
+              ]
+}
+
+
+test {
+    minHeapSize = "128m"
+    maxHeapSize = "1024m"
+}
+
+
+def maxPermSize = '256M'
+
+farm {
+    webapp project
+    webapp ':webshop-finnno'
+}
+
+
