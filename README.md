@@ -6,7 +6,7 @@ implementering. Jeg har i løsningen valgt å legge fagsystem webservice inne i 
 
 Ingen tester er etablert. Her er måle å opprette en rest integrasjonstest, Camel rutetester og enhetstester med JUnit.
 
-Og Camel ruten classen
+og Camel ruten classen
 
 "https://github.com/dragerot/integrasjonsutviklerEx1/blob/master/src/main/java/integrasjon/route/KundeAvtaleIntegrasjonRoute.java"
 
