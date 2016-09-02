@@ -40,7 +40,7 @@ public class KundeAvtaleIntegrasjonRoute extends RouteBuilder {
                 to("direct:baal:registerAvtale").
                 //bean("stoppSjekkStatusIkkeKvalifisert").
                 //to("direct:baal:oppdatereStatus").
-                to("direct:bana:Sendepost").
+                to("direct:baal:Sendepost").
                 end();
 
        from("direct:baal:registerKunde").routeId("baal:oppretteKundeAvtale").
