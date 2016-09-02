@@ -34,12 +34,12 @@ public class KundeAvtaleIntegrasjonRoute extends RouteBuilder {
        from("direct:csl:opprettKundeAvtale").routeId("csl:oppretteKundeAvtale").
                 process(new PrepareMessageProcessor()).
                 setProperty("oppretteKundeInn", simple("${body}", OppretteKundeInn.class)).
-                bean(StoppSjekkKundeIkkeKvalifisert.class).
                 to("direct:baal:registerKunde").
-                bean(StoppSjekkAvtaleIkkeKvalifisert.class).
+                bean(StoppSjekkKundeIkkeKvalifisert.class).
                 to("direct:baal:registerAvtale").
-                //bean("stoppSjekkStatusIkkeKvalifisert").
+                bean(StoppSjekkAvtaleIkkeKvalifisert.class).
                 //to("direct:baal:oppdatereStatus").
+                //bean("stoppSjekkStatusIkkeKvalifisert").
                 to("direct:baal:Sendepost").
                 end();
 
