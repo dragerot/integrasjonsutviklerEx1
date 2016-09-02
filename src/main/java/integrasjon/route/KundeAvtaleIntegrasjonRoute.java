@@ -34,36 +34,36 @@ public class KundeAvtaleIntegrasjonRoute extends RouteBuilder {
        from("direct:csl:opprettKundeAvtale").routeId("csl:oppretteKundeAvtale").
                 process(new PrepareMessageProcessor()).
                 setProperty("oppretteKundeInn", simple("${body}", OppretteKundeInn.class)).
-                to("direct:baal:registerKunde").
-                bean(StoppSjekkKundeIkkeKvalifisert.class).
-                to("direct:baal:registerAvtale").
-                bean(StoppSjekkAvtaleIkkeKvalifisert.class).
+                //to("direct:baal:registerKunde").
+                //bean(StoppSjekkKundeIkkeKvalifisert.class).
+                //to("direct:baal:registerAvtale").
+                //bean(StoppSjekkAvtaleIkkeKvalifisert.class).
                 //to("direct:baal:oppdatereStatus").
                 //bean("stoppSjekkStatusIkkeKvalifisert").
-                to("direct:baal:Sendepost").
+                //to("direct:baal:Sendepost").
                 end();
 
-       from("direct:baal:registerKunde").routeId("baal:oppretteKundeAvtale").
-              //bean(OpprettKundeAvtaleTransform.class).
+//       from("direct:baal:registerKunde").routeId("baal:oppretteKundeAvtale").
+//              //bean(OpprettKundeAvtaleTransform.class).
 //               setHeader("operationNamespace", constant("http://biz/ifint/no/webshop/fagsystem/service")).
 //               setHeader("operationName", constant("oppretteKunde")).
 //               to("cxf:bean:fagsystemService").
-               end();
+//               end();
 
-        from("direct:baal:registerAvtale").routeId("baal:registerAvtale").
-                //bean(OpprettKundeAvtaleTransform.class).
+//        from("direct:baal:registerAvtale").routeId("baal:registerAvtale").
+//                //bean(OpprettKundeAvtaleTransform.class).
 //               setHeader("operationNamespace", constant("http://biz/ifint/no/webshop/fagsystem/service")).
 //               setHeader("operationName", constant("oppretteOppdrag")).
 //               to("cxf:bean:fagsystemService").
-        end();
+//        end();
 
 
-      from("direct:baal:oppdatereStatus").routeId("baal:oppdatereStatus").
-                //bean("OppdatereStatusTransform.class).
+//      from("direct:baal:oppdatereStatus").routeId("baal:oppdatereStatus").
+//                //bean("OppdatereStatusTransform.class).
 //               setHeader("operationNamespace", constant("http://biz/ifint/no/webshop/fagsystem/service")).
 //               setHeader("operationName", constant("oppdatereStatus")).
 //               to("cxf:bean:fagsystemService").
-        end();
+//        end();
 
 //        from("direct:baal:Sendepost").routeId("sendbrev").
 //                to("TODO").
