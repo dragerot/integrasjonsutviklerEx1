@@ -2,7 +2,7 @@
 
 Dette er en uferdig løsning, men jeg har valgt å brukel Camel rammeverket og CXF Jax-rs og Jax-ws implementasjonene til å løse oppgaven. Jeg brukte Camel rammeverket i min jobb i If, og mye er farget av dette i mitt løsningsforslag. 
 
-Koden er ustabil må regnes som en skiss. 
+Koden er ustabil må regnes som en skisse. 
 
 Jeg er interessert i Spring Boot, og kunne konfigurert opp med mindre konfigurasjonskode. Men jeg har ikke fått prøvd ut CXF, så jeg valgte meg bort fra dette.
 
